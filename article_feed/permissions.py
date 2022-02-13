@@ -1,5 +1,5 @@
 from rest_framework.permissions import IsAuthenticated
-from .models import Article
+from .models import Article, User
 
 
 class OnlyAuthor(IsAuthenticated):
@@ -8,7 +8,7 @@ class OnlyAuthor(IsAuthenticated):
     """
 
     def has_permission(self, request, view):
-        if Article.objects.filter(author_id=request.user.id):
+        if User.objects.filter(id=request.user.id, role='A'):
             return bool(request.user and request.user.is_authenticated)
 
 

@@ -68,6 +68,13 @@ class ArticleDetailView(viewsets.ModelViewSet):
         'destroy': (OnlySelfAuthor,),
     }
 
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        if not self.request.user.id and Article.objects.get(id=kwargs['pk']).is_locked:
+            return Response({'error': 'Закрытая статья'})
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
     def get_permissions(self):
         try:
             return [permission() for permission in self.permission_classes_by_action[self.action]]
