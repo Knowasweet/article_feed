@@ -26,8 +26,7 @@ SECRET_KEY = 'django-insecure-i5s!0zr3y!=rl_3e6y2u@+4p)%)=012*^6mqw0y8cs2xl^1_h&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['article_feed.herokapp.com']
+ALLOWED_HOSTS = ['article_feed.herokapp.com']
 
 # Application definition
 
@@ -81,10 +80,10 @@ AUTH_USER_MODEL = 'article_feed.User'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'article_feed',
-        'USER': 'postgres',
-        'PASSWORD': '54321',
-        'HOST': 'localhost',
+        'NAME': 'db12dba7sueags',
+        'USER': 'bjcuteahabadsn',
+        'PASSWORD': 'ad8fc0b2aba2e90f0b0a7f68b65b5d2c1bb8f74ce54321944ac3a999042f74a6',
+        'HOST': 'ec2-34-249-49-9.eu-west-1.compute.amazonaws.com',
         'PORT': '5432'
     }
 }
@@ -123,7 +122,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR / 'static')
 STATIC_URL = '/static/'
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
